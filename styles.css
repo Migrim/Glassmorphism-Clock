@@ -102,14 +102,14 @@ body {
 
 .dot1 {
     background: linear-gradient(135deg, #2600ff, #27c911);
-    top: 300px;
-    left: 460px;
+    top: calc(50% - 90px);
+    left: calc(50% - 210px);
     animation: float-up 4s ease-in-out infinite;
 }
 
 .dot2 {
     background: linear-gradient(135deg, #ff8a00, #e52e71);
-    bottom: 300px;
-    right: 460px;
+    bottom: calc(50% - 90px);
+    right: calc(50% - 210px);
     animation: float-down 4s ease-in-out infinite;
 }
