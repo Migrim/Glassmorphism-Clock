@@ -1,0 +1,115 @@
+@keyframes float-up {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float-down {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: #1a1a1a;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding: 0 50px;
+    position: absolute;
+    top: 20px;
+    z-index: 100;
+}
+
+.left-label, .right-label {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.right-label a {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.right-label a:hover {
+    color: #FFD700; /* Yellow color on hover */
+}
+
+.right-label a:hover .material-icons {
+    color: #FFD700; /* Make the star yellow on hover */
+    transform: scale(0.9); /* Slightly larger on hover */
+}
+
+.material-icons {
+    transform: scale(0.8); /* Default scale */
+    vertical-align: middle;
+    margin-right: 5px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and scale */
+    margin-bottom: 0px;
+}
+
+.clock-container {
+    position: relative;
+    background: rgba(85, 85, 85, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(7px) saturate(200%);
+    -webkit-backdrop-filter: blur(7px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+    z-index: 5;
+}
+
+.time-display {
+    font-size: 48px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.dot1 {
+    background: linear-gradient(135deg, #2600ff, #27c911);
+    top: 300px;
+    left: 460px;
+    animation: float-up 4s ease-in-out infinite;
+}
+
+.dot2 {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    bottom: 300px;
+    right: 460px;
+    animation: float-down 4s ease-in-out infinite;
+}
