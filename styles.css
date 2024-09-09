@@ -22,52 +22,19 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background: #1a1a1a;
     margin: 0;
     font-family: Arial, sans-serif;
     position: relative;
 }
 
-.labels {
-    display: flex;
-    justify-content: space-between;
-    width: 50%;
-    padding: 0 50px;
-    position: absolute;
-    top: 20px;
-    z-index: 100;
+body.dark-mode {
+    background: #1a1a1a;
+    transition: background 0.3s ease;
 }
 
-.left-label, .right-label {
-    color: #ffffff;
-    font-size: 16px;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
-}
-
-.right-label a {
-    color: #ffffff;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-}
-
-.right-label a:hover {
-    color: #FFD700;
-}
-
-.right-label a:hover .material-icons {
-    color: #FFD700;
-    transform: scale(0.9);
-}
-
-.material-icons {
-    transform: scale(0.8);
-    vertical-align: middle;
-    margin-right: 5px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    margin-bottom: 0px;
+body.light-mode {
+    background: #f0f0f0;
+    transition: background 0.3s ease;
 }
 
 .clock-container {
@@ -81,6 +48,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.25);
     overflow: hidden;
     z-index: 5;
+    min-width: 250px;
+    text-align: center;
+}
+
+body.dark-mode .clock-container {
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Darker border for dark mode */
 }
 
 .time-display {
@@ -89,6 +62,13 @@ body {
     letter-spacing: 2px;
     position: relative;
     z-index: 10;
+    font-family: 'Roboto Mono', monospace;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.light-mode .time-display {
+    color: #000000;
 }
 
 .dot {
@@ -102,14 +82,38 @@ body {
 
 .dot1 {
     background: linear-gradient(135deg, #2600ff, #27c911);
-    top: calc(50% - 90px);
-    left: calc(50% - 210px);
+    top: calc(50% - 95px);
+    left: calc(50% - 240px);
     animation: float-up 4s ease-in-out infinite;
 }
 
 .dot2 {
     background: linear-gradient(135deg, #ff8a00, #e52e71);
-    bottom: calc(50% - 90px);
-    right: calc(50% - 210px);
+    bottom: calc(50% - 95px);
+    right: calc(50% - 240px);
     animation: float-down 4s ease-in-out infinite;
+}
+
+.dark-mode .dot1, .dark-mode .dot2 {
+    opacity: 0.8;
+}
+
+.light-mode .dot1, .light-mode .dot2 {
+    opacity: 0.6;
+}
+
+.tip {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #ffffff88;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 100;
+    font-family: 'Roboto', sans-serif;
+}
+
+.light-mode .tip {
+    color: #0000008f;
 }
